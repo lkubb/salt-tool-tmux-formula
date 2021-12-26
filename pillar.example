@@ -1,0 +1,4 @@
+tool:
+  tmux: # or users for general
+    - name: user
+    - xdg: true
