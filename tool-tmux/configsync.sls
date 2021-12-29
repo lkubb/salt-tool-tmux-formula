@@ -1,8 +1,9 @@
-{%- for user in salt['pillar.get']('tool:tmux', salt['pillar.get']('tool:users', [])) %}
-  {%- from 'tool/tmux/map.jinja' import user, xdg with context %}
+{%- from 'tool-tmux/map.jinja' import tmux %}
+
+{%- for user in tmux.users %}
 tmux configuration is synced for user '{{ user.name }}':
   file.recurse:
-    - name: {{ xdg.config }}/tmux
+    - name: {{ user.xdg.config }}/tmux
     - source:
       - salt://user/{{ user.name }}/dotfiles/tmux
       - salt://user/dotfiles/tmux

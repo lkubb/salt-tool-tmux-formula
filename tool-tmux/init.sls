@@ -1,5 +1,7 @@
+{%- from 'tool-tmux/map.jinja' import tmux %}
+
 include:
   - .package
-{%- if salt['pillar.get']('tool:tmux', salt['pillar.get']('tool:users', [])) | rejectattr('xdg', 'sameas', False) %}
+{%- if tmux.users | rejectattr('xdg', 'sameas', False) %}
   - .xdg
 {%- endif %}

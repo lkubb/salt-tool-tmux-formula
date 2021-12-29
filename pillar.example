@@ -1,4 +1,12 @@
 tool:
-  tmux: # or users for general
-    - name: user
-    - xdg: true
+  tmux: # tmux-specific
+    users:
+      user:
+        xdg: true
+        configsync: true
+
+tool:
+  users: # or global
+    user:
+      xdg: true
+      configsync: true
