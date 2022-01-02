@@ -3,8 +3,7 @@
 include:
   - .package
 
-{%- for user in tmux.users %}
-# if XDG_CONFIG_HOME is not ~/.config , you need to alias tmux='tmux -f ${XDG_CONFIG_HOME}' because it is hardcoded @TODO
+{%- for user in tmux.users | rejectattr('xdg', 'sameas', False) %}
 Existing tmux configuration is migrated for user '{{ user.name }}':
   file.rename:
     - name: {{ user.xdg.config }}/tmux/tmux.conf
@@ -26,7 +25,8 @@ tmux has its config file in XDG_CONFIG_HOME for user '{{ user.name }}':
     - prereq_in:
       - tmux setup is completed
 
-  {%- if ! user.xdg.config == user.home ~ '/.config' && user.persistenv %}
+  {%- if user.xdg.config != user.home ~ '/.config' and user.get('persistenv') %}
+# if XDG_CONFIG_HOME is not ~/.config , you need to alias tmux='tmux -f ${XDG_CONFIG_HOME}/tmux/tmux.conf' because it is hardcoded
 tmux uses config file in custom XDG_CONFIG_HOME for user {{ user.name }}:
   file.append:
     - name: {{ user.persistenv }}

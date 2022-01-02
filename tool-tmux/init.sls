@@ -5,3 +5,6 @@ include:
 {%- if tmux.users | rejectattr('xdg', 'sameas', False) %}
   - .xdg
 {%- endif %}
+{%- if tmux.users | selectattr('dotconfig', 'defined') | selectattr('dotconfig') %}
+  - .configsync
+{%- endif %}

@@ -1,6 +1,6 @@
 {%- from 'tool-tmux/map.jinja' import tmux %}
 
-{%- if tmux.users | selectattr('dotconfig') %}
+{%- if tmux.users | selectattr('dotconfig', 'defined') | selectattr('dotconfig') %}
 include:
   - .configsync
 {%- endif %}
