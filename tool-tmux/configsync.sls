@@ -5,8 +5,8 @@ tmux configuration is synced for user '{{ user.name }}':
   file.recurse:
     - name: {{ user.xdg.config }}/tmux
     - source:
-      - salt://user/{{ user.name }}/dotfiles/tmux
-      - salt://user/dotfiles/tmux
+      - salt://dotconfig/{{ user.name }}/tmux
+      - salt://dotconfig/tmux
     - context:
         user: {{ user }}
     - template: jinja
