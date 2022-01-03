@@ -1,6 +1,6 @@
 {%- from 'tool-tmux/map.jinja' import tmux %}
 
-{%- for user in tmux.users | selectattr('dotconfig', 'defined') | selectattr('dotconfig') %} %}
+{%- for user in tmux.users | selectattr('dotconfig', 'defined') | selectattr('dotconfig') %}
 tmux configuration is synced for user '{{ user.name }}':
   file.recurse:
     - name: {{ user.xdg.config }}/tmux
