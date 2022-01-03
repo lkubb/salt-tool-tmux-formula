@@ -19,6 +19,7 @@ tmux has its config file in XDG_CONFIG_HOME for user '{{ user.name }}':
     - name: {{ user.xdg.config }}/tmux/tmux.conf
     - user: {{ user.name }}
     - group: {{ user.group }}
+    - replace: False
     - makedirs: True
     - mode: '0600'
     - dir_mode: '0700'
