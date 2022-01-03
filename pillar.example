@@ -3,10 +3,10 @@ tool:
     users:
       user:
         xdg: true
-        configsync: true
+        dotconfig: true
 
 tool:
   users: # or global
     user:
       xdg: true
-      configsync: true
+      dotconfig: true

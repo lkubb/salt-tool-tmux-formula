@@ -46,7 +46,7 @@ The following shows an example of `tool-tmux` pillar configuration. Namespace it
 ```yaml
 user:
   xdg: true
-  configsync: true
+  dotconfig: true
 ```
 
 #### Formula-specific
