@@ -10,3 +10,5 @@ tool:
     user:
       xdg: true
       dotconfig: true
+      tmux:
+        tpm: false  # installs Tmux Plugin Manager

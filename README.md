@@ -47,6 +47,8 @@ The following shows an example of `tool-tmux` pillar configuration. Namespace it
 user:
   xdg: true
   dotconfig: true
+  tmux:
+    tpm: false  # installs Tmux Plugin Manager
 ```
 
 #### Formula-specific

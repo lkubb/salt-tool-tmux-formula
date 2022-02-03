@@ -8,3 +8,6 @@ include:
 {%- if tmux.users | selectattr('dotconfig', 'defined') | selectattr('dotconfig') %}
   - .configsync
 {%- endif %}
+{%- if tmux.users | selectattr('tmux.tpm', 'defined') | selectattr('tmux.tpm') %}
+  - .tpm
+{%- endif %}
