@@ -11,7 +11,7 @@ Existing tmux configuration is migrated for user '{{ user.name }}':
     - onlyif:
       - test -e {{ user.home }}/.tmux.conf
     - makedirs: true
-    - prereq_in:
+    - require_in:
       - tmux setup is completed
 
 tmux has its config file in XDG_CONFIG_HOME for user '{{ user.name }}':
@@ -23,7 +23,7 @@ tmux has its config file in XDG_CONFIG_HOME for user '{{ user.name }}':
     - makedirs: True
     - mode: '0600'
     - dir_mode: '0700'
-    - prereq_in:
+    - require_in:
       - tmux setup is completed
 
   {%- if user.xdg.config != user.home ~ '/.config' and user.get('persistenv') %}
