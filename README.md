@@ -45,14 +45,24 @@ tool:
 The following shows an example of `tool-tmux` pillar configuration. Namespace it to `tool:users` and/or `tool:tmux:users`.
 ```yaml
 user:
-  xdg: true
+  xdg: true      # force xdg dirs
+  # sync this user's config from a dotfiles repo available as
+  # salt://dotconfig/<user>/tmux or salt://dotconfig/tmux
   dotconfig: true
+  # persist tmux env vars to use xdg dirs permanently
+  # (will be appended to file relative to $HOME)
+  persistenv: '.config/zsh/zshenv'
   tmux:
     tpm: false  # installs Tmux Plugin Manager
 ```
 
 #### Formula-specific
-There are none currently.
+```yaml
+tool:
+  tmux:
+    defaults:
+      tpm: false # installs Tmux Plugin Manager
+```
 
 ### Dotfiles
 `tool-tmux.configsync` will recursively apply templates from 
