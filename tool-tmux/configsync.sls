@@ -10,7 +10,7 @@ tmux configuration is synced for user '{{ user.name }}':
       - salt://dotconfig/{{ user.name }}/tmux
       - salt://dotconfig/tmux
     - context:
-        user: {{ user }}
+        user: {{ user | json }}
     - template: jinja
     - user: {{ user.name }}
     - group: {{ user.group }}
