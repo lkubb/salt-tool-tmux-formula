@@ -1,0 +1,19 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+#
+# Set default values.
+---
+values:
+  lookup:
+    pkg:
+      name: tmux
+    paths:
+      confdir: ''
+      conffile: '.tmux.conf'
+      xdg_dirname: 'tmux'
+      xdg_conffile: 'tmux.conf'
+    rootgroup: root
+  # Just here for testing
+  added_in_defaults: defaults_value
+  winner: defaults
+...
