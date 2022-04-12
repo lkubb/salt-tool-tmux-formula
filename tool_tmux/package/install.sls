@@ -5,6 +5,7 @@
 {%- set tplroot = tpldir.split('/')[0] %}
 {%- from tplroot ~ "/map.jinja" import mapdata as tmux with context %}
 
+
 tmux is installed:
   pkg.installed:
     - name: {{ tmux.lookup.pkg.name }}

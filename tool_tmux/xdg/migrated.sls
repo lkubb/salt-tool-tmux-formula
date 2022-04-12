@@ -9,7 +9,7 @@ include:
   - {{ tplroot }}.package
 
 
-{%- for user in tmux.users | rejectattr('xdg', 'sameas', False) %}
+{%- for user in tmux.users | rejectattr('xdg', 'sameas', false) %}
 
 {%-   set user_default_conf = user.home | path_join(tmux.lookup.paths.confdir, tmux.lookup.paths.conffile) %}
 {%-   set user_xdg_confdir = user.xdg.config | path_join(tmux.lookup.paths.xdg_dirname) %}

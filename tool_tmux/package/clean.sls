@@ -9,6 +9,7 @@
 include:
   - {{ sls_config_clean }}
 
+
 tmux is removed:
   pkg.removed:
     - name: {{ tmux.lookup.pkg.name }}
