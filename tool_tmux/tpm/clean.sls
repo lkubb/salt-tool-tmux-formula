@@ -1,14 +1,13 @@
-# -*- coding: utf-8 -*-
 # vim: ft=sls
 
-{%- set tplroot = tpldir.split('/')[0] %}
-{%- set sls_config_clean = tplroot ~ '.config.clean' %}
+{%- set tplroot = tpldir.split("/")[0] %}
+{%- set sls_config_clean = tplroot ~ ".config.clean" %}
 {%- from tplroot ~ "/map.jinja" import mapdata as tmux with context %}
 
 
-{%- for user in tmux.users | selectattr('tmux.tpm', 'defined') | selectattr('tmux.tpm') %}
+{%- for user in tmux.users | selectattr("tmux.tpm", "defined") | selectattr("tmux.tpm") %}
 
 Tmux Plugin Manager is removed for user '{{ user.name }}':
   file.absent:
-    - name: {{ user._tmux.datadir | path_join('plugins', 'tpm') }}
+    - name: {{ user._tmux.datadir | path_join("plugins", "tpm") }}
 {%- endfor %}

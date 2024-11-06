@@ -1,11 +1,14 @@
-# -*- coding: utf-8 -*-
 # vim: ft=sls
 
-{%- set tplroot = tpldir.split('/')[0] %}
+{#-
+    Removes tmux XDG compatibility crutches for all managed users.
+#}
+
+{%- set tplroot = tpldir.split("/")[0] %}
 {%- from tplroot ~ "/map.jinja" import mapdata as tmux with context %}
 
 
-{%- for user in tmux.users | rejectattr('xdg', 'sameas', false) %}
+{%- for user in tmux.users | rejectattr("xdg", "sameas", false) %}
 
 {%-   set user_default_conf = user.home | path_join(tmux.lookup.paths.confdir, tmux.lookup.paths.conffile) %}
 {%-   set user_xdg_confdir = user.xdg.config | path_join(tmux.lookup.paths.xdg_dirname) %}
@@ -22,7 +25,7 @@ tmux does not have its config folder in XDG_CONFIG_HOME for user '{{ user.name }
     - require:
       - tmux configuration is cluttering $HOME for user '{{ user.name }}'
 
-{%-   if user.xdg.config != user.home ~ '/.config' and user.get('persistenv') %}
+{%-   if user.xdg.config != user.home ~ "/.config" and user.get("persistenv") %}
 
 tmux is ignorant about XDG location for user '{{ user.name }}':
   file.replace:
