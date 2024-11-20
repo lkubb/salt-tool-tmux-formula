@@ -1,5 +1,5 @@
-Welcome to salt-tool-tmux-formula's documentation!
-==================================================
+Welcome to tool-tmux-formula's documentation!
+=============================================
 
 .. toctree::
    :maxdepth: 2
